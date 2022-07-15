@@ -1,4 +1,4 @@
-<p>List all Articles</p>
+<p>List all Articles</p><p><%= notice %></p>
 <%= link_to "Create new Article", new_article_path%>
 <table>
 <tr>
@@ -11,6 +11,11 @@
         <td> <%= article.description%></td>
         <td><button><%= link_to "Edit", edit_article_path(article) %></button></td>
         <td><button><%= link_to "show", article_path(article) %><button></td>
+      
+        <%# <td><%= button_to "Destroy this article", article_url(article), method: :delete</td> %>
+
+        <td><%= button_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you Sure"}%></td>
+
     </tr>
 <%end%>
 </table>

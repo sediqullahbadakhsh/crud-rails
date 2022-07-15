@@ -1,5 +1,9 @@
+<%= form_with model: @article, local: true, data: {turbo: false} do |form| %>
 <% if @article.errors.any? %>
-    <h2>Please check the following errors</h2>
+
+    <h2>
+    <%= pluralize(@article.errors.count, "error") %>
+    Please check the following errors:</h2>
     <ul>
       <% @article.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -8,7 +12,6 @@
   <% end %>
 
 
-<%= form_with(model: @article, local: true) do |form| %>
     <p>
         <%= form.label :title%>
         <%= form.text_field :title%>
